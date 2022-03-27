@@ -12,8 +12,7 @@ class Button extends React.Component {
   }
 
   metodo = () => {
-    console.log('aqui')
-    //this.props.metodo
+    this.props.metodo()
   }
 
   render() {

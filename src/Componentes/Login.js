@@ -2,11 +2,15 @@ import React from 'react'
 import Button from './Button'
 
 class Login extends React.Component {
+  loginVerificator = () => {
+    this.props.metodo()
+  }
+
   render() {
     return (
       <div className={'main'}>
         <div className={'container'}>
-          <form action="">
+          <form>
             <h1 className={'title-login'}>LOGIN</h1>
 
             <div className={'input-login'}>
@@ -17,17 +21,20 @@ class Login extends React.Component {
               <input type="password" name="password" placeholder="Password" />
             </div>
 
-            <p className={'userNotEnter'}>Usuario não cadastrado</p>
+            <p id="userNotEnter" className={'userNotEnter hidden'}>
+              Usuario não cadastrado
+            </p>
 
             <div className={'cadastro'}>
               <p>Não tem cadastro?</p>
-              <a href="">Cadastrar</a>
+              <a href="/cadastro">Cadastrar</a>
             </div>
 
             <Button
               acao="entrar"
               estiloContainer="button-container-login"
               estiloBotao="button button-login"
+              metodo={this.loginVerificator}
             />
           </form>
         </div>

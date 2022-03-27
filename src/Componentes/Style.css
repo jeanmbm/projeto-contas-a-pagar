@@ -103,11 +103,14 @@ input {
 .userNotEnter {
   color: red;
   font-weight: bold;
-  display: none;
-  visibility: hidden;
   font-size: 12px;
+  display: none;
   text-align: center;
   margin-top: 10px;
+}
+
+.hidden {
+  visibility: hidden;
 }
 
 /* ___ CADASTRO ____________________________________________________*/

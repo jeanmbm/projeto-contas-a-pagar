@@ -5,33 +5,61 @@ import Button from './Button'
 class Cadastro extends React.Component {
   constructor() {
     super()
+    this.state = {
+      username: '',
+      password: ''
+    }
   }
 
-  efetuarCadastro = () => {}
+  alterarUsername = e => {
+    this.setState({ username: e.target.value })
+  }
+
+  alterarPassword = e => {
+    this.setState({ password: e.target.value })
+  }
+
+  submeterForm = e => {
+    this.props.metodo(this.state)
+    console.log('Username: ', this.state.username)
+    console.log('Password: ', this.state.password)
+  }
 
   render() {
     return (
-      <div class="container-cadastro">
-        <form action="">
-          <h2 class="title-cadastro">Cadastro</h2>
+      <div className="container-cadastro">
+        <form onSubmit={this.submeterForm}>
+          <h2 className="title-cadastro">Cadastro</h2>
 
           <hr />
 
-          <div class="container-itens-cadastro">
-            <div class="division">
-              <label for="" class="text-label">
-                Usuário
+          <div className="container-itens-cadastro">
+            <div className="division">
+              <label className="text-label">
+                Informe um nome para usuário:
               </label>
               <br />
-              <input type="text" name="username" class="input-cadastro" />
+              <input
+                id="username"
+                type="text"
+                name="username"
+                className="input-cadastro"
+                value={this.state.username}
+                onChange={this.alterarUsername}
+              />
             </div>
 
             <div>
-              <label for="" class="text-label">
-                Senha
-              </label>
+              <label className="text-label">Informe uma senha:</label>
               <br />
-              <input type="text" name="password" class="input-cadastro" />
+              <input
+                id="password"
+                type="password"
+                name="password"
+                className="input-cadastro"
+                value={this.state.password}
+                onChange={this.alterarPassword}
+              />
             </div>
           </div>
 
@@ -39,6 +67,7 @@ class Cadastro extends React.Component {
             acao="salvar"
             estiloContainer="container-itens-cadastro container-button-cadastro"
             estiloBotao="button button-cadastro"
+            metodo={this.submeterForm}
           />
         </form>
       </div>
