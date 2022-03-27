@@ -1,5 +1,6 @@
 import React from 'react'
 import Button from './Button'
+import Input from './Input'
 
 class Login extends React.Component {
   loginVerificator = () => {
@@ -13,13 +14,27 @@ class Login extends React.Component {
           <form>
             <h1 className={'title-login'}>LOGIN</h1>
 
-            <div className={'input-login'}>
-              <input type="text" name="username" placeholder="Username" />
-            </div>
+            <Input
+              styleDivContainer="input-login"
+              labelStyle="hidden"
+              labelText=""
+              inputId="username"
+              inputType="text"
+              inputName="username"
+              inputStyle="input"
+              inputPlaceholder="Username"
+            />
 
-            <div className={'input-login'}>
-              <input type="password" name="password" placeholder="Password" />
-            </div>
+            <Input
+              styleDivContainer="input-login"
+              labelStyle="hidden"
+              labelText=""
+              inputId="password"
+              inputType="password"
+              inputName="password"
+              inputStyle="input"
+              inputPlaceholder="Password"
+            />
 
             <p id="userNotEnter" className={'userNotEnter hidden'}>
               Usuario não cadastrado

@@ -1,6 +1,7 @@
 import React from 'react'
 import './Style.css'
 import Button from './Button'
+import Input from './Input'
 
 class Cadastro extends React.Component {
   constructor() {
@@ -34,33 +35,29 @@ class Cadastro extends React.Component {
           <hr />
 
           <div className="container-itens-cadastro">
-            <div className="division">
-              <label className="text-label">
-                Informe um nome para usuário:
-              </label>
-              <br />
-              <input
-                id="username"
-                type="text"
-                name="username"
-                className="input-cadastro"
-                value={this.state.username}
-                onChange={this.alterarUsername}
-              />
-            </div>
+            <Input
+              styleDivContainer="division"
+              labelStyle="text-label"
+              labelText="Informe um nome para usuário:"
+              inputId="username"
+              inputType="text"
+              inputName="username"
+              inputStyle="input input-cadastro"
+              inputPlaceholder=""
+              value={this.state.username}
+              onChange={this.alterarUsername}
+            />
 
-            <div>
-              <label className="text-label">Informe uma senha:</label>
-              <br />
-              <input
-                id="password"
-                type="password"
-                name="password"
-                className="input-cadastro"
-                value={this.state.password}
-                onChange={this.alterarPassword}
-              />
-            </div>
+            <Input
+              labelStyle="text-label"
+              labelText="Informe uma senha:"
+              inputId="password"
+              inputType="password"
+              inputName="password"
+              inputStyle="input input-cadastro"
+              value={this.state.password}
+              onChange={this.alterarPassword}
+            />
           </div>
 
           <Button
