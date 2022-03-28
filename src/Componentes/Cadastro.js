@@ -21,9 +21,9 @@ class Cadastro extends React.Component {
   }
 
   submeterForm = e => {
-    this.props.metodo(this.state)
-    console.log('Username: ', this.state.username)
-    console.log('Password: ', this.state.password)
+    this.props.metodo(this.state.username, this.state.password)
+    //console.log('Username: ', this.state.username)
+    //console.log('Password: ', this.state.password)
   }
 
   render() {

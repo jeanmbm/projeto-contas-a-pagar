@@ -14,22 +14,21 @@ class App extends React.Component {
     }
   }
 
-  efetuarCadastro = e => {
-    // this.setState({ username: username, password: password })
+  efetuarCadastro = (username, password) => {
+    this.setState({ username: username, password: password })
+    console.log('Componente App')
     console.log('Username: ', this.state.username)
     console.log('Password: ', this.state.password)
-    e.preventDefault()
   }
 
   loginVerification = (username, password) => {
-    if (
-      username === { username: this.state.username } &&
-      password === { password: this.state.password }
-    ) {
+    if (username === this.state.username && password === this.state.password) {
       this.setState({ login: true })
+      console.log('true')
     } else {
       const userNotEnter = document.getElementById('userNotEnter')
-      userNotEnter.style.cssText = 'visibility: hidden;'
+      userNotEnter.style.cssText = 'display: block;' + 'visibility: visible;'
+      console.log('false')
     }
   }
 
