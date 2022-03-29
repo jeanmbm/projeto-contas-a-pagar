@@ -165,7 +165,7 @@ main {
 
 .container-grid {
   display: grid;
-  grid-template-columns: 214px 215px 215px;
+  grid-template-columns: 214px 215px auto;
   grid-template-rows: 70px 300px 299px;
   gap: 0px 0px;
   grid-template-areas:
@@ -184,4 +184,5 @@ main {
 .Content {
   grid-area: Content;
   background-color: green;
+  padding: 20px 50px;
 }

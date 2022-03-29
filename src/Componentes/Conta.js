@@ -1,4 +1,5 @@
 import React from 'react'
+import Conta2 from './Conta2'
 import './Style.css'
 
 class Conteudo extends React.Component {
@@ -7,7 +8,9 @@ class Conteudo extends React.Component {
       <div className="container-grid">
         <div className="Header">Header</div>
         <div className="Menu">Menu</div>
-        <div className="Content">Content</div>
+        <div className="Content">
+          <Conta2 />
+        </div>
       </div>
     )
   }
