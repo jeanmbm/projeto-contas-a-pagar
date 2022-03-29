@@ -20,18 +20,15 @@ class Login extends React.Component {
   }
 
   loginVerificator = () => {
-    this.props.metodo(this.state)
+    this.props.metodo(this.state.username, this.state.password)
   }
 
   render() {
     return (
-      <div className={'main'}>
-        <div className={'container'}>
-          <form>
-            <h1 className={'title-login'}>LOGIN</h1>
-
-            <hr />
-            <br />
+      <div className="main">
+        <div className="container">
+          <form action="/conta">
+            <h1 className="title-login">LOGIN</h1>
 
             <Input
               styleDivContainer="input-login"
@@ -59,11 +56,11 @@ class Login extends React.Component {
               onChange={this.escutarInputPassword}
             />
 
-            <p id="userNotEnter" className={'userNotEnter'}>
+            <p id="userNotEnter" className="userNotEnter">
               Usuario não cadastrado
             </p>
 
-            <div className={'cadastro'}>
+            <div className="cadastro">
               <p>Não tem cadastro?</p>
               <a href="/cadastro">Cadastrar</a>
             </div>

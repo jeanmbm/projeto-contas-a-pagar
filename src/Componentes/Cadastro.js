@@ -4,8 +4,8 @@ import Button from './Button'
 import Input from './Input'
 
 class Cadastro extends React.Component {
-  constructor() {
-    super()
+  constructor(props) {
+    super(props)
     this.state = {
       username: '',
       password: ''
@@ -20,16 +20,15 @@ class Cadastro extends React.Component {
     this.setState({ password: e.target.value })
   }
 
-  submeterForm = e => {
+  submeterForm = () => {
+    alert(this.state.username + this.state.password)
     this.props.metodo(this.state.username, this.state.password)
-    //console.log('Username: ', this.state.username)
-    //console.log('Password: ', this.state.password)
   }
 
   render() {
     return (
       <div className="container-cadastro">
-        <form onSubmit={this.submeterForm}>
+        <form action="/">
           <h2 className="title-cadastro">Cadastro</h2>
 
           <hr />

@@ -4,11 +4,6 @@ import './Style.css'
 class Button extends React.Component {
   constructor(props) {
     super(props)
-    this.state = {
-      acao: '',
-      estiloContainer: '',
-      estiloBotao: ''
-    }
   }
 
   metodo = () => {

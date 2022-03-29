@@ -88,18 +88,6 @@ main {
   background-color: rgb(106, 35, 173);
 }
 
-.cadastro {
-  display: flex;
-  margin: 20px 15px 0px 15px;
-  font-size: 0.85rem;
-  align-content: center;
-  justify-content: space-between;
-}
-
-.cadastro p {
-  color: rgb(95, 94, 94);
-}
-
 .userNotEnter {
   color: red;
   font-weight: bold;
@@ -119,6 +107,18 @@ main {
 .container-cadastro {
   margin: 70px 60px;
   min-height: 100vh;
+}
+
+.cadastro {
+  display: flex;
+  margin: 20px 15px 0px 15px;
+  font-size: 0.85rem;
+  align-content: center;
+  justify-content: space-between;
+}
+
+.cadastro p {
+  color: rgb(95, 94, 94);
 }
 
 .title-cadastro {
@@ -161,11 +161,27 @@ main {
   background-color: rgb(73, 172, 46);
 }
 
-.divider-1 {
-  height: 1px;
-  background: linear-gradient(
-    270deg,
-    hsla(var(--hue), 36%, 57%, 1),
-    hsla(var(--hue), 65%, 88%, 0.34)
-  );
+/*___________________________________________________________________________________*/
+
+.container-grid {
+  display: grid;
+  grid-template-columns: 214px 215px 215px;
+  grid-template-rows: 70px 300px 299px;
+  gap: 0px 0px;
+  grid-template-areas:
+    'Header Header Header'
+    'Menu Content Content'
+    'Menu Content Content';
+}
+.Header {
+  grid-area: Header;
+  background-color: red;
+}
+.Menu {
+  grid-area: Menu;
+  background-color: blue;
+}
+.Content {
+  grid-area: Content;
+  background-color: green;
 }

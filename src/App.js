@@ -3,27 +3,30 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
 import './Componentes/Style.css'
 import Login from './Componentes/Login'
 import Cadastro from './Componentes/Cadastro'
+import Conta from './Componentes/Conta'
 
 class App extends React.Component {
-  constructor() {
-    super()
+  constructor(props) {
+    super(props)
     this.state = {
       username: '',
       password: '',
-      login: false
+      isLoggedin: false
     }
   }
 
-  efetuarCadastro = (username, password) => {
-    this.setState({ username: username, password: password })
-    console.log('Componente App')
-    console.log('Username: ', this.state.username)
-    console.log('Password: ', this.state.password)
+  efetuarCadastro = (loginUsername, loginPassword) => {
+    this.setState({ username: loginUsername, password: loginPassword })
   }
 
-  loginVerification = (username, password) => {
-    if (username === this.state.username && password === this.state.password) {
-      this.setState({ login: true })
+  loginVerification = (loginUsername, loginPassword) => {
+    alert(this.state.username + this.state.password)
+    alert(loginUsername + loginPassword)
+    if (
+      loginUsername == this.state.username &&
+      loginPassword == this.state.password
+    ) {
+      this.setState({ isLoggedin: true })
       console.log('true')
     } else {
       const userNotEnter = document.getElementById('userNotEnter')
@@ -46,6 +49,7 @@ class App extends React.Component {
               path="/cadastro"
               element={<Cadastro metodo={this.efetuarCadastro} />}
             />
+            <Route path="/conta" element={<Conta />} />
           </Routes>
         </Router>
       </>
