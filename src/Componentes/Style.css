@@ -103,6 +103,12 @@ main {
   visibility: hidden;
 }
 
+.show {
+  display: block;
+  visibility: visible;
+  align-items: center;
+}
+
 /* ___ CADASTRO ____________________________________________________*/
 .container-cadastro {
   margin: 70px 60px;
@@ -185,12 +191,4 @@ main {
   grid-area: Content;
   background-color: green;
   padding: 20px 50px;
-}
-
-.show {
-  display: initial;
-}
-
-.hide {
-  display: none;
 }
