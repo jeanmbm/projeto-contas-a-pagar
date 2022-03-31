@@ -181,7 +181,7 @@ main {
 }
 .Header {
   grid-area: Header;
-  background-color: red;
+  background-color: rgb(211, 211, 211);
 }
 .Menu {
   grid-area: Menu;
@@ -193,6 +193,3 @@ main {
   padding: 20px 50px;
 }
 
-.back {
-  background-color: aqua;
-}

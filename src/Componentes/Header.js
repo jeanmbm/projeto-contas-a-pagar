@@ -7,7 +7,7 @@ class Header extends React.Component {
     return (
       <div className="cadastro">
         <h2>APP</h2>
-        <Saldo />
+        <Saldo saldo={this.props.saldo} />
       </div>
     )
   }
