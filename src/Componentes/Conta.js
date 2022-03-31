@@ -1,6 +1,7 @@
 import React from 'react'
 import Conta2 from './Conta2'
 import Header from './Header'
+import Menu from './Menu'
 import './Style.css'
 
 class Conteudo extends React.Component {
@@ -17,7 +18,9 @@ class Conteudo extends React.Component {
         <div className="Header">
           <Header saldo={this.state.saldo} />
         </div>
-        <div className="Menu">Menu</div>
+        <div className="Menu">
+          <Menu />
+        </div>
         <div className="Content">
           <Conta2 />
         </div>

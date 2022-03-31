@@ -223,7 +223,10 @@ main {
 .Menu {
   grid-area: Menu;
   background-color: blue;
+  display: flex;
+  flex-direction: column;
 }
+
 .Content {
   grid-area: Content;
   background-color: green;
