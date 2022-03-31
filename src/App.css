@@ -209,7 +209,7 @@ main {
 .container-grid {
   display: grid;
   grid-template-columns: 214px 215px auto;
-  grid-template-rows: 70px 300px 299px;
+  grid-template-rows: 70px 300px auto;
   gap: 0px 0px;
   grid-template-areas:
     'Header Header Header'

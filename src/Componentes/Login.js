@@ -11,8 +11,8 @@ class Login extends React.Component {
     this.state = {
       usernameLogin: '',
       passwordLogin: '',
-      usernameCadastro: '',
-      passwordCadastro: '',
+      usernameCadastro: '123',
+      passwordCadastro: '123',
       isLoggedin: false
     }
   }
@@ -48,9 +48,9 @@ class Login extends React.Component {
   efetuarCadastro = (username, password, e) => {
     this.setState({
       usernameCadastro: username,
-      passwordCadastro: password,
-      mostrarCadastro: false
+      passwordCadastro: password
     })
+
     e.preventDefault()
 
     const cadastro = document.getElementById('cadastro')
@@ -70,13 +70,12 @@ class Login extends React.Component {
       this.state.passwordLogin === this.state.passwordCadastro
     ) {
       this.setState({ isLoggedin: true })
-      alert(this.state.isLoggedin)
     } else {
       const userNotEnter = document.getElementById('userNotEnter')
       userNotEnter.classList.remove('hidden')
       userNotEnter.classList.add('show')
-      alert(this.state.isLoggedin)
     }
+    alert(this.state.isLoggedin)
   }
 
   render() {
