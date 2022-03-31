@@ -13,7 +13,6 @@ class Login extends React.Component {
       passwordLogin: '',
       usernameCadastro: '',
       passwordCadastro: '',
-      mostrarCadastro: false,
       isLoggedin: false
     }
   }
@@ -26,17 +25,34 @@ class Login extends React.Component {
     this.setState({ passwordLogin: e.target.value })
   }
 
-  telaCadastro = () => {
-    this.setState({ mostrarCadastro: true })
+  telaCadastro = e => {
+    const login = document.getElementById('login')
+    login.classList.remove('show')
+    login.classList.add('hidden')
+
+    const cadastro = document.getElementById('cadastro')
+    cadastro.classList.remove('hidden')
+    cadastro.classList.add('show')
+
     e.preventDefault()
   }
 
-  efetuarCadastro = (username, password) => {
+  efetuarCadastro = (username, password, e) => {
     this.setState({
       usernameCadastro: username,
       passwordCadastro: password,
       mostrarCadastro: false
     })
+
+    const cadastro = document.getElementById('cadastro')
+    cadastro.classList.remove('show')
+    cadastro.classList.add('hidden')
+
+    const login = document.getElementById('login')
+    login.classList.remove('hidden')
+    login.classList.add('show')
+
+    e.preventDefault()
   }
 
   loginVerificator = e => {
@@ -50,7 +66,7 @@ class Login extends React.Component {
       alert(this.state.isLoggedin)
     } else {
       const userNotEnter = document.getElementById('userNotEnter')
-      userNotEnter.classList.remove('hide')
+      userNotEnter.classList.remove('hidden')
       userNotEnter.classList.add('show')
     }
   }
@@ -61,7 +77,7 @@ class Login extends React.Component {
     } else {
       return (
         <div>
-          <div className="main show">
+          <div id="login" className="main show">
             <div className="container">
               <form>
                 <h1 className="title-login">LOGIN</h1>
@@ -98,7 +114,7 @@ class Login extends React.Component {
 
                 <div className="cadastro">
                   <p>Não tem cadastro?</p>
-                  <button onClick={this.mostrarCadastro}>Cadastrar</button>
+                  <button onClick={this.telaCadastro}>Cadastrar</button>
                 </div>
 
                 <Button
@@ -109,6 +125,47 @@ class Login extends React.Component {
                 />
               </form>
             </div>
+          </div>
+
+          <div id="cadastro" className="container-cadastro hiddden">
+            <form>
+              <h2 className="title-cadastro">Cadastro</h2>
+
+              <hr />
+
+              <div className="container-itens-cadastro">
+                <Input
+                  styleDivContainer="division"
+                  labelStyle="text-label"
+                  labelText="Informe um nome para usuário:"
+                  inputId="username"
+                  inputType="text"
+                  inputName="username"
+                  inputStyle="input input-cadastro"
+                  inputPlaceholder=""
+                  value={this.state.username}
+                  onChange={this.alterarUsername}
+                />
+
+                <Input
+                  labelStyle="text-label"
+                  labelText="Informe uma senha:"
+                  inputId="password"
+                  inputType="password"
+                  inputName="password"
+                  inputStyle="input input-cadastro"
+                  value={this.state.password}
+                  onChange={this.alterarPassword}
+                />
+              </div>
+
+              <Button
+                acao="salvar"
+                estiloContainer="container-itens-cadastro container-button-cadastro"
+                estiloBotao="button button-cadastro"
+                metodo={this.submeterForm}
+              />
+            </form>
           </div>
         </div>
       )
