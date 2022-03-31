@@ -25,6 +25,14 @@ class Login extends React.Component {
     this.setState({ passwordLogin: e.target.value })
   }
 
+  escutarUsernameCadastro = e => {
+    this.setState({ usernameCadastro: e.target.value })
+  }
+
+  escutarPasswordCadastro = e => {
+    this.setState({ passwordCadastro: e.target.value })
+  }
+
   telaCadastro = e => {
     const login = document.getElementById('login')
     login.classList.remove('show')
@@ -43,6 +51,7 @@ class Login extends React.Component {
       passwordCadastro: password,
       mostrarCadastro: false
     })
+    e.preventDefault()
 
     const cadastro = document.getElementById('cadastro')
     cadastro.classList.remove('show')
@@ -51,8 +60,6 @@ class Login extends React.Component {
     const login = document.getElementById('login')
     login.classList.remove('hidden')
     login.classList.add('show')
-
-    e.preventDefault()
   }
 
   loginVerificator = e => {
@@ -68,6 +75,7 @@ class Login extends React.Component {
       const userNotEnter = document.getElementById('userNotEnter')
       userNotEnter.classList.remove('hidden')
       userNotEnter.classList.add('show')
+      alert(this.state.isLoggedin)
     }
   }
 
@@ -127,45 +135,8 @@ class Login extends React.Component {
             </div>
           </div>
 
-          <div id="cadastro" className="container-cadastro hiddden">
-            <form>
-              <h2 className="title-cadastro">Cadastro</h2>
-
-              <hr />
-
-              <div className="container-itens-cadastro">
-                <Input
-                  styleDivContainer="division"
-                  labelStyle="text-label"
-                  labelText="Informe um nome para usuário:"
-                  inputId="usernameCadastro"
-                  inputType="text"
-                  inputName="username"
-                  inputStyle="input input-cadastro"
-                  inputPlaceholder=""
-                  value={this.state.username}
-                  onChange={this.alterarUsername}
-                />
-
-                <Input
-                  labelStyle="text-label"
-                  labelText="Informe uma senha:"
-                  inputId="passwordCadastro"
-                  inputType="password"
-                  inputName="password"
-                  inputStyle="input input-cadastro"
-                  value={this.state.password}
-                  onChange={this.alterarPassword}
-                />
-              </div>
-
-              <Button
-                acao="salvar"
-                estiloContainer="container-itens-cadastro container-button-cadastro"
-                estiloBotao="button button-cadastro"
-                metodo={this.submeterForm}
-              />
-            </form>
+          <div>
+            <Cadastro metodo={this.efetuarCadastro} />
           </div>
         </div>
       )

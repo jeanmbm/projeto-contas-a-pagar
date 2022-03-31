@@ -12,11 +12,11 @@ class Cadastro extends React.Component {
     }
   }
 
-  alterarUsername = e => {
+  alterarUsernameCadastro = e => {
     this.setState({ username: e.target.value })
   }
 
-  alterarPassword = e => {
+  alterarPasswordCadastro = e => {
     this.setState({ password: e.target.value })
   }
 
@@ -27,7 +27,7 @@ class Cadastro extends React.Component {
 
   render() {
     return (
-      <div className="container-cadastro">
+      <div id="cadastro" className="container-cadastro hidden">
         <form>
           <h2 className="title-cadastro">Cadastro</h2>
 
@@ -38,24 +38,24 @@ class Cadastro extends React.Component {
               styleDivContainer="division"
               labelStyle="text-label"
               labelText="Informe um nome para usuário:"
-              inputId="username"
+              inputId="usernameCadastro"
               inputType="text"
               inputName="username"
               inputStyle="input input-cadastro"
               inputPlaceholder=""
               value={this.state.username}
-              onChange={this.alterarUsername}
+              onChange={this.alterarUsernameCadastro}
             />
 
             <Input
               labelStyle="text-label"
               labelText="Informe uma senha:"
-              inputId="password"
+              inputId="passwordCadastro"
               inputType="password"
               inputName="password"
               inputStyle="input input-cadastro"
               value={this.state.password}
-              onChange={this.alterarPassword}
+              onChange={this.alterarPasswordCadastro}
             />
           </div>
 
