@@ -1,4 +1,5 @@
 import React from 'react'
+import { Navigate } from 'react-router-dom'
 import Conta2 from './Conta2'
 import Header from './Header'
 import Menu from './Menu'
@@ -12,6 +13,11 @@ class Conteudo extends React.Component {
     }
   }
 
+  loggout = () => {
+    alert('aqui')
+    return <Navigate to={'/'} />
+  }
+
   render() {
     return (
       <div className="container-grid">
@@ -19,7 +25,7 @@ class Conteudo extends React.Component {
           <Header saldo={this.state.saldo} />
         </div>
         <div className="Menu">
-          <Menu />
+          <Menu metodo={this.loggout} />
         </div>
         <div className="Content">
           <Conta2 />

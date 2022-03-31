@@ -9,7 +9,12 @@ class Menu extends React.Component {
         <Button estiloContainer="flex-item" acao="Pagar" />
         <Button estiloContainer="flex-item" acao="Receber" />
         <Button estiloContainer="flex-item" acao="Extrato" />
-        <Button estiloContainer="flex-item" acao="Sair" />
+        <Button
+          estiloContainer="flex-item"
+          estiloBota="estiloBotao"
+          acao="Sair"
+          metodo={this.props.metodo}
+        />
       </div>
     )
   }

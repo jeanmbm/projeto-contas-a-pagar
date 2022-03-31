@@ -212,4 +212,9 @@ main {
   background-color: black;
   padding: 25px;
   margin: 10px 0px;
+  align-items: center;
+}
+
+.estilo-botao {
+  background-color: red;
 }
