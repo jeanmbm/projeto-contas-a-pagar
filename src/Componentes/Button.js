@@ -2,12 +2,9 @@ import React from 'react'
 import './Style.css'
 
 class Button extends React.Component {
-  constructor(props) {
-    super(props)
-  }
-
-  metodo = () => {
+  metodo = e => {
     this.props.metodo()
+    e.preventDefault()
   }
 
   render() {

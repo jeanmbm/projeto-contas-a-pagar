@@ -28,7 +28,7 @@ class Cadastro extends React.Component {
   render() {
     return (
       <div className="container-cadastro">
-        <form action="/">
+        <form>
           <h2 className="title-cadastro">Cadastro</h2>
 
           <hr />

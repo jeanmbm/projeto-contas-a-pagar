@@ -1,5 +1,7 @@
 import React from 'react'
 import '../App.css'
+import Button from './Button'
+import Input from './Input'
 
 class LoginCadastro extends React.Component {
   constructor() {
@@ -33,12 +35,19 @@ class LoginCadastro extends React.Component {
     this.props.metodo(this.state.username, this.state.password)
   }
 
+  efetuarCadastro = (loginUsername, loginPassword) => {
+    this.setState({
+      usernameCadastro: loginUsername,
+      passwordCadastro: loginPassword
+    })
+  }
+
   loginVerification = e => {
     alert(this.state.usernameCadastro + this.state.passwordCadastro)
     alert(this.state.usernameLogin + this.state.passwordLogin)
     if (
-      this.state.usernameLogin == this.state.usernameCadastro &&
-      this.state.passwordLogin == this.state.passwordCadastro
+      this.state.usernameLogin === this.state.usernameCadastro &&
+      this.state.passwordLogin === this.state.passwordCadastro
     ) {
       window.location('/conta')
     } else {

@@ -132,8 +132,6 @@ main {
   color: red;
   font-weight: bold;
   font-size: 12px;
-  display: none;
-  visibility: hidden;
   text-align: center;
   margin-top: 10px;
 }
@@ -141,6 +139,11 @@ main {
 .hidden {
   display: none;
   visibility: hidden;
+}
+
+.show {
+  display: block;
+  visibility: visible;
 }
 
 /* ___ CADASTRO ____________________________________________________*/
