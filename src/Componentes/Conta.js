@@ -9,7 +9,7 @@ class Conteudo extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      saldo: 2594.69
+      saldo: 1000.0
     }
   }
 
@@ -28,7 +28,7 @@ class Conteudo extends React.Component {
           <Menu metodo={this.loggout} />
         </div>
         <div className="Content">
-          <Conta2 />
+          <Conta2 texto="Contas a pagar" />
         </div>
       </div>
     )

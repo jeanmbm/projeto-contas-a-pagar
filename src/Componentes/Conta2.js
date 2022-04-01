@@ -5,9 +5,18 @@ class Conta2 extends React.Component {
   render() {
     return (
       <div>
-        <h2>Contas a pagar</h2>
+        <h2>{this.props.texto}</h2>
         <div>
-          <Input />
+          <Input
+            styleDivContainer=""
+            labelStyle=""
+            labelText=""
+            inputId="valorPagar"
+            inputType="number"
+            inputName="valorPagar"
+            inputStyle=""
+            inputPlaceholder="Valor"
+          />
         </div>
       </div>
     )

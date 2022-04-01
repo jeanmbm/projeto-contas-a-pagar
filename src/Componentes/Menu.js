@@ -10,7 +10,7 @@ class Menu extends React.Component {
         <Button estiloContainer="flex-item" acao="Receber" />
         <Button estiloContainer="flex-item" acao="Extrato" />
         <Button
-          estiloContainer="flex-item"
+          estiloContainer="loggout"
           estiloBota="estiloBotao"
           acao="Sair"
           metodo={this.props.metodo}

@@ -179,14 +179,17 @@ main {
     'Menu Content Content'
     'Menu Content Content';
 }
+
 .Header {
   grid-area: Header;
   background-color: rgb(211, 211, 211);
 }
+
 .Menu {
   grid-area: Menu;
   background-color: blue;
 }
+
 .Content {
   grid-area: Content;
   background-color: green;
@@ -197,7 +200,7 @@ main {
   display: flex;
   flex-direction: column;
   flex-wrap: nowrap;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: stretch;
   align-content: stretch;
 }
@@ -215,6 +218,7 @@ main {
   align-items: center;
 }
 
-.estilo-botao {
-  background-color: red;
+.loggout {
+  align-items: flex-end;
 }
+

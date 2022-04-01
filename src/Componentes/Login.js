@@ -121,7 +121,12 @@ class Login extends React.Component {
 
                 <div className="cadastro">
                   <p>Não tem cadastro?</p>
-                  <button onClick={this.telaCadastro}>Cadastrar</button>
+                  <button
+                    onClick={this.telaCadastro}
+                    style={{ backgroundColor: 'white' }}
+                  >
+                    Cadastrar
+                  </button>
                 </div>
 
                 <Button
