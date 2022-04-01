@@ -1,7 +1,19 @@
 import React from 'react'
+import Button from './Button'
 import Input from './Input'
 
 class Conta2 extends React.Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      value: 'Escreva uma descrição'
+    }
+  }
+
+  mudarTexto = e => {
+    this.setState({ value: e.target.valeu })
+  }
+
   render() {
     return (
       <div>
@@ -16,6 +28,17 @@ class Conta2 extends React.Component {
             inputName="valorPagar"
             inputStyle=""
             inputPlaceholder="Valor"
+          />
+
+          <textarea
+            value={this.state.value}
+            onChange={this.mudarTexto}
+          ></textarea>
+
+          <Button
+            acao="Salvar"
+            estiloContainer="button-container-login"
+            estiloBotao="button button-login"
           />
         </div>
       </div>
