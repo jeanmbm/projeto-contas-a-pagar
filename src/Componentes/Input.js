@@ -13,6 +13,7 @@ class Input extends React.Component {
           name={this.props.inputName}
           className={this.props.inputStyle}
           placeholder={this.props.inputPlaceholder}
+          min={this.props.minValue}
           value={this.props.value}
           onChange={this.props.onChange}
         />

@@ -6,7 +6,7 @@ class Conta2 extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      value: 'Escreva uma descrição'
+      value: ''
     }
   }
 
@@ -16,8 +16,8 @@ class Conta2 extends React.Component {
 
   render() {
     return (
-      <div>
-        <h2>{this.props.texto}</h2>
+      <div className="flex-container">
+        <h2 className="title-conta">{this.props.texto}</h2>
         <div>
           <Input
             styleDivContainer=""
@@ -26,20 +26,19 @@ class Conta2 extends React.Component {
             inputId="valorPagar"
             inputType="number"
             inputName="valorPagar"
-            inputStyle=""
+            inputStyle="input-conta"
             inputPlaceholder="Valor"
+            minValue="0"
           />
 
           <textarea
-            value={this.state.value}
-            onChange={this.mudarTexto}
+            name="descricao"
+            id="descricao"
+            placeholder=""
+            className="text-area"
           ></textarea>
 
-          <Button
-            acao="Salvar"
-            estiloContainer="button-container-login"
-            estiloBotao="button button-login"
-          />
+          <Button acao="Salvar" estiloBotao="button button-conta-pagar " />
         </div>
       </div>
     )
