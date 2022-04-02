@@ -1,23 +1,25 @@
 import React from 'react'
 import Button from '../Auxiliares/Button'
 import Input from '../Auxiliares/Input'
+import TextArea from '../Auxiliares/TextArea'
 
-class Conta2 extends React.Component {
+class Transação extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      value: ''
+      valor: ''
     }
   }
 
   mudarTexto = e => {
-    this.setState({ value: e.target.valeu })
+    this.setState({ valor: e.target.value })
   }
 
   render() {
     return (
       <div className="flex-container">
         <h2 className="title-conta">{this.props.texto}</h2>
+
         <div>
           <Input
             styleDivContainer=""
@@ -31,12 +33,14 @@ class Conta2 extends React.Component {
             minValue="0"
           />
 
-          <textarea
-            name="descricao"
-            id="descricao"
-            placeholder=""
-            className="text-area"
-          ></textarea>
+          <TextArea
+            name="descricaoPagamento"
+            id="descricaoPagametno"
+            styleTextarea="text-area"
+            placeholder="Descrição"
+            value={this.state.valor}
+            onChange={this.mudarTexto}
+          />
 
           <Button acao="Salvar" estiloBotao="button button-conta-pagar " />
         </div>
@@ -45,4 +49,4 @@ class Conta2 extends React.Component {
   }
 }
 
-export default Conta2
+export default Transação

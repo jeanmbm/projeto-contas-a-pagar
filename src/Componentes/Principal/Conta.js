@@ -1,6 +1,6 @@
 import React from 'react'
 import { Navigate } from 'react-router-dom'
-import Conta2 from './Conta2'
+import Transações from './Transação'
 import Header from './Header'
 import Menu from './Menu'
 import '../Style.css'
@@ -9,7 +9,8 @@ class Conteudo extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      saldo: 1000.0
+      saldo: 1000.0,
+      valor: ''
     }
   }
 
@@ -28,7 +29,7 @@ class Conteudo extends React.Component {
           <Menu metodo={this.loggout} />
         </div>
         <div className="Content">
-          <Conta2 texto="Contas a pagar" />
+          <Transações texto="Pagamento" />
         </div>
       </div>
     )

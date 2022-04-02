@@ -6,9 +6,12 @@ class TextArea extends React.Component {
     return (
       <div className={this.props.contaiterTextarea}>
         <textarea
+          name={this.props.name}
+          id={this.props.id}
           className={this.props.styleTextarea}
-          value={this.state.value}
-          onChange={this.mudarTexto}
+          placeholder={this.props.placeholder}
+          value={this.props.value}
+          onChange={this.props.onChange}
         ></textarea>
       </div>
     )
