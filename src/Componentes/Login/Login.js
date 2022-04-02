@@ -1,9 +1,9 @@
 import React from 'react'
 import { Navigate } from 'react-router-dom'
-import Button from './Button'
-import Cadastro from './Cadastro'
-import Input from './Input'
-import './Style.css'
+import Button from '../Auxiliares/Button'
+import Cadastro from '../Cadastro/Cadastro'
+import Input from '../Auxiliares/Input'
+import '../Style.css'
 
 class Login extends React.Component {
   constructor() {

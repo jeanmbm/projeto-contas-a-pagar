@@ -1,6 +1,6 @@
 import React from 'react'
-import Button from './Button'
-import './Style.css'
+import Button from '../Auxiliares/Button'
+import '../Style.css'
 
 class Menu extends React.Component {
   render() {

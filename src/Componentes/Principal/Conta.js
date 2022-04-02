@@ -3,7 +3,7 @@ import { Navigate } from 'react-router-dom'
 import Conta2 from './Conta2'
 import Header from './Header'
 import Menu from './Menu'
-import './Style.css'
+import '../Style.css'
 
 class Conteudo extends React.Component {
   constructor(props) {

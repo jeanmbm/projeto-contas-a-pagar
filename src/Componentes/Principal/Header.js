@@ -1,6 +1,6 @@
 import React from 'react'
 import Saldo from './Saldo'
-import './Style.css'
+import '../Style.css'
 
 class Header extends React.Component {
   render() {

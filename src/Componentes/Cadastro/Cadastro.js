@@ -1,7 +1,7 @@
 import React from 'react'
-import './Style.css'
-import Button from './Button'
-import Input from './Input'
+import '../Style.css'
+import Button from '../Auxiliares/Button'
+import Input from '../Auxiliares/Input'
 
 class Cadastro extends React.Component {
   constructor(props) {

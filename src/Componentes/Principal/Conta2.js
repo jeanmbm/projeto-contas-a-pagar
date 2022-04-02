@@ -1,6 +1,6 @@
 import React from 'react'
-import Button from './Button'
-import Input from './Input'
+import Button from '../Auxiliares/Button'
+import Input from '../Auxiliares/Input'
 
 class Conta2 extends React.Component {
   constructor(props) {

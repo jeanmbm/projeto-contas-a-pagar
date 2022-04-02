@@ -1,5 +1,5 @@
 import React from 'react'
-import './Style.css'
+import '../Style.css'
 
 class Input extends React.Component {
   render() {

@@ -1,5 +1,5 @@
 import React from 'react'
-import './Style.css'
+import '../Style.css'
 
 class Button extends React.Component {
   metodo = e => {
