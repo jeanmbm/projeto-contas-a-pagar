@@ -6,8 +6,8 @@ import Input from '../Auxiliares/Input'
 import '../Style.css'
 
 class Login extends React.Component {
-  constructor() {
-    super()
+  constructor(props) {
+    super(props)
     this.state = {
       usernameLogin: '',
       passwordLogin: '',
@@ -45,14 +45,7 @@ class Login extends React.Component {
     e.preventDefault()
   }
 
-  efetuarCadastro = (username, password, e) => {
-    this.setState({
-      usernameCadastro: username,
-      passwordCadastro: password
-    })
-
-    e.preventDefault()
-
+  telaLogin = e => {
     const cadastro = document.getElementById('cadastro')
     cadastro.classList.remove('show')
     cadastro.classList.add('hidden')
@@ -60,6 +53,17 @@ class Login extends React.Component {
     const login = document.getElementById('login')
     login.classList.remove('hidden')
     login.classList.add('show')
+
+    e.preventDefault()
+  }
+
+  efetuarCadastro = (username, password) => {
+    this.setState({
+      usernameCadastro: username,
+      passwordCadastro: password
+    })
+
+    this.telaLogin()
   }
 
   loginVerificator = e => {
@@ -139,7 +143,7 @@ class Login extends React.Component {
             </div>
           </div>
 
-          <div>
+          <div id="cadastro" className="hidden">
             <Cadastro metodo={this.efetuarCadastro} />
           </div>
         </div>

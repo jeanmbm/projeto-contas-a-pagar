@@ -20,14 +20,15 @@ class Cadastro extends React.Component {
     this.setState({ password: e.target.value })
   }
 
-  submeterForm = () => {
+  submeterForm = e => {
     alert(this.state.username + this.state.password)
     this.props.metodo(this.state.username, this.state.password)
+    e.preventDefault()
   }
 
   render() {
     return (
-      <div id="cadastro" className="container-cadastro hidden">
+      <div className="container-cadastro">
         <form>
           <h2 className="title-cadastro">Cadastro</h2>
 

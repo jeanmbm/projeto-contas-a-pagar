@@ -247,7 +247,8 @@ main {
   height: 100%;
   max-height: 107px;
   width: 100%;
-  padding: 1%;
+  padding: 15px 0px 15px 25px;
+
   margin: 20px auto 20px 15px;
   border-style: groove;
   border-color: gray;
@@ -266,4 +267,21 @@ main {
 
 .button-conta-pagar:hover {
   background-color: rgb(47, 148, 47);
+}
+
+.demo {
+  width: 100%;
+  border: 1px solid #b5b5b5;
+  border-collapse: collapse;
+  padding: 8px;
+}
+.demo th {
+  border: 1px solid #b5b5b5;
+  padding: 8px;
+  background: #d4d4d4;
+}
+.demo td {
+  border: 1px solid #b5b5b5;
+  padding: 8px;
+  text-align: center;
 }

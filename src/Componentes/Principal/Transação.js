@@ -7,18 +7,27 @@ class Transação extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      valor: ''
+      valor: '',
+      descricao: ''
     }
   }
 
-  mudarTexto = e => {
+  mudarValor = e => {
     this.setState({ valor: e.target.value })
+  }
+
+  mudarDescricao = e => {
+    this.setState({ descricao: e.target.value })
+  }
+
+  realizarTransacao = e => {
+    this.props.metodo(this.state.valor, this.state.descricao, this.props.tipo)
   }
 
   render() {
     return (
       <div className="flex-container">
-        <h2 className="title-conta">{this.props.texto}</h2>
+        <h2 className="title-conta">{this.props.titulo}</h2>
 
         <div>
           <Input
@@ -31,6 +40,8 @@ class Transação extends React.Component {
             inputStyle="input-conta"
             inputPlaceholder="Valor"
             minValue="0"
+            value={this.state.valor}
+            onChange={this.mudarValor}
           />
 
           <TextArea
@@ -38,11 +49,15 @@ class Transação extends React.Component {
             id="descricaoPagametno"
             styleTextarea="text-area"
             placeholder="Descrição"
-            value={this.state.valor}
-            onChange={this.mudarTexto}
+            value={this.state.descricao}
+            onChange={this.mudarDescricao}
           />
 
-          <Button acao="Salvar" estiloBotao="button button-conta-pagar " />
+          <Button
+            acao="Pagar"
+            estiloBotao="button button-conta-pagar "
+            metodo={this.realizarTransacao}
+          />
         </div>
       </div>
     )
