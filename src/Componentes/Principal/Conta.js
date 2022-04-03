@@ -63,6 +63,9 @@ class Conteudo extends React.Component {
       this.setState({ lista: [...this.state.lista, transacao] })
       this.setState({ transacaoAtual: 'Listagem' })
     } else {
+      const error = document.getElementById('failTransaction')
+      error.classList.remove('hidden')
+      error.classList.add('show')
     }
   }
 

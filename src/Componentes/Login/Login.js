@@ -119,7 +119,7 @@ class Login extends React.Component {
                   onChange={this.escutarInputPassword}
                 />
 
-                <p id="userNotEnter" className="userNotEnter hidden">
+                <p id="userNotEnter" className="error hidden">
                   Usuario não cadastrado
                 </p>
 

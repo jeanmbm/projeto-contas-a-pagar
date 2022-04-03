@@ -53,6 +53,10 @@ class Transação extends React.Component {
             onChange={this.mudarDescricao}
           />
 
+          <p id="failTransaction" className="error hidden">
+            Preencha todos os campos
+          </p>
+
           <Button
             acao="Pagar"
             estiloBotao="button button-conta-pagar "

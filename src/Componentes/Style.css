@@ -93,7 +93,7 @@ main {
   background-color: rgb(106, 35, 173);
 }
 
-.userNotEnter {
+.error {
   color: red;
   font-weight: bold;
   font-size: 12px;
