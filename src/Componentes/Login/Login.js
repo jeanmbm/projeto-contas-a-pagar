@@ -57,13 +57,27 @@ class Login extends React.Component {
     e.preventDefault()
   }
 
-  efetuarCadastro = (username, password) => {
-    this.setState({
-      usernameCadastro: username,
-      passwordCadastro: password
-    })
+  verificarCadastro = (username, password) => {
+    if (username !== '' && password !== '') {
+      return true
+    }
+    return false
+  }
 
-    this.telaLogin()
+  efetuarCadastro = (username, password) => {
+    const isPassed = this.verificarCadastro(username, password)
+    if (isPassed) {
+      this.setState({
+        usernameCadastro: username,
+        passwordCadastro: password
+      })
+
+      this.telaLogin()
+    } else {
+      const error = document.getElementById('failCadastro')
+      error.classList.remove('hidden')
+      error.classList.add('show')
+    }
   }
 
   loginVerificator = e => {

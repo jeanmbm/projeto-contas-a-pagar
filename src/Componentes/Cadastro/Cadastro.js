@@ -60,6 +60,14 @@ class Cadastro extends React.Component {
             />
           </div>
 
+          <p
+            id="failCadastro"
+            className="error hidden"
+            style={{ textAlign: 'left', marginLeft: '45px' }}
+          >
+            Preencha todos os campos
+          </p>
+
           <Button
             acao="salvar"
             estiloContainer="container-itens-cadastro container-button-cadastro"

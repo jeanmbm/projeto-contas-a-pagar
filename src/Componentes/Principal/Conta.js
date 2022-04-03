@@ -1,5 +1,4 @@
 import React from 'react'
-import { Navigate } from 'react-router-dom'
 import Transação from './Transação'
 import Header from './Header'
 import Menu from './Menu'
