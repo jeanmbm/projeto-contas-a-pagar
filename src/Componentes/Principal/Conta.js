@@ -12,7 +12,7 @@ class Conteudo extends React.Component {
       recebimento: false,
       pagamento: false,
       listagem: false,
-      transacaoAtual: 'Recebimento',
+      transacaoAtual: 'Listagem',
       saldo: 1000.0,
       lista: [
         {
@@ -93,7 +93,7 @@ class Conteudo extends React.Component {
     return (
       <div className="container-grid">
         <div className="Header">
-          <Header saldo={this.state.saldo} />
+          <Header saldo={this.state.saldo} lista={this.state.lista} />
         </div>
         <div className="Menu">
           <Menu mudarTransacao={this.mudarTransacaoAtual} />
