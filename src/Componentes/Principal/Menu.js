@@ -41,7 +41,7 @@ class Menu extends React.Component {
         <Button
           id="sair"
           acao="Sair"
-          estiloBotao="teste"
+          estiloBotao="teste-sair"
           metodo={this.props.metodo}
         />
       </div>

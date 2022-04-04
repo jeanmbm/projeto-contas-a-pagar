@@ -61,6 +61,7 @@ class Transação extends React.Component {
           <Button
             acao="Pagar"
             estiloBotao="button button-conta-pagar "
+            style={{ marginTop: '20px' }}
             metodo={this.realizarTransacao}
           />
         </div>
