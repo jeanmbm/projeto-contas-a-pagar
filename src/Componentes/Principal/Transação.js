@@ -22,6 +22,7 @@ class Transação extends React.Component {
 
   realizarTransacao = e => {
     this.props.metodo(this.state.valor, this.state.descricao, this.props.tipo)
+    this.setState({ valor: '', descricao: '' })
   }
 
   render() {

@@ -13,7 +13,7 @@ class Listagem extends React.Component {
 
     return (
       <div>
-        <h2 className="title-conta">Listagem</h2>
+        <h2 className="title-conta">Extrato</h2>
         <table className="demo">
           <thead>
             <tr>

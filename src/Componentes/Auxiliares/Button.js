@@ -10,7 +10,11 @@ class Button extends React.Component {
   render() {
     return (
       <div className={this.props.estiloContainer}>
-        <button onClick={this.metodo} className={this.props.estiloBotao}>
+        <button
+          id={this.props.id}
+          onClick={this.metodo}
+          className={this.props.estiloBotao}
+        >
           {this.props.acao}
         </button>
       </div>

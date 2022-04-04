@@ -16,33 +16,34 @@ class Menu extends React.Component {
   }
   render() {
     return (
-      <div className="">
-        <div className="flex-container">
-          <Button
-            estiloContainer="flex-item"
-            acao="Pagar"
-            metodo={this.mudarTransacaoPagamento}
-          />
-          <Button
-            estiloContainer="flex-item"
-            estiloBotao="button-menu"
-            acao="Receber"
-            metodo={this.mudarTransacaoRecebimento}
-          />
-          <Button
-            estiloContainer="flex-item"
-            acao="Extrato"
-            metodo={this.mudarTransacaoListagem}
-          />
-        </div>
-        <div>
-          <Button
-            estiloContainer="loggout"
-            estiloBotao="button-menu"
-            acao="Sair"
-            metodo={this.props.metodo}
-          />
-        </div>
+      <div id="menu" className="teste">
+        <Button
+          id="pagar"
+          acao="Pagar"
+          estiloBotao="teste"
+          metodo={this.mudarTransacaoPagamento}
+        />
+
+        <Button
+          acao="Receber"
+          id="receber"
+          estiloBotao="teste"
+          metodo={this.mudarTransacaoRecebimento}
+        />
+
+        <Button
+          id="listar"
+          acao="Extrato"
+          estiloBotao="teste"
+          metodo={this.mudarTransacaoListagem}
+        />
+
+        <Button
+          id="sair"
+          acao="Sair"
+          estiloBotao="teste"
+          metodo={this.props.metodo}
+        />
       </div>
     )
   }

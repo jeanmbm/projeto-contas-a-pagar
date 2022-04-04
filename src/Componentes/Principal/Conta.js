@@ -16,9 +16,9 @@ class Conteudo extends React.Component {
       saldo: 1000.0,
       lista: [
         {
-          valor: 75,
-          descricao: 'Cartão',
-          tipo: 'Pagamento',
+          valor: 1000,
+          descricao: 'Saldo inicial',
+          tipo: 'Recebimento',
           data: this.dataHoraTransacao()
         }
       ]
@@ -91,14 +91,16 @@ class Conteudo extends React.Component {
     }
 
     return (
-      <div className="container-grid">
-        <div className="Header">
-          <Header saldo={this.state.saldo} lista={this.state.lista} />
+      <div style={{ height: '100%', width: '100%' }}>
+        <div className="container-grid">
+          <div className="Header">
+            <Header saldo={this.state.saldo} lista={this.state.lista} />
+          </div>
+          <div className="Menu">
+            <Menu mudarTransacao={this.mudarTransacaoAtual} />
+          </div>
+          <div className="Content">{transacao}</div>
         </div>
-        <div className="Menu">
-          <Menu mudarTransacao={this.mudarTransacaoAtual} />
-        </div>
-        <div className="Content">{transacao}</div>
       </div>
     )
   }

@@ -136,7 +136,7 @@ class Login extends React.Component {
                 />
 
                 <p id="userNotEnter" className="error hidden">
-                  Usuario não cadastrado
+                  Usuario Inválido
                 </p>
 
                 <div className="cadastro">
