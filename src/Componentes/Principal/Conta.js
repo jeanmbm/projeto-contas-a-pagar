@@ -9,9 +9,6 @@ class Conteudo extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      recebimento: false,
-      pagamento: false,
-      listagem: false,
       transacaoAtual: 'Listagem',
       saldo: 1000.0,
       lista: [

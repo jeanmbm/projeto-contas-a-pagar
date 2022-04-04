@@ -9,6 +9,7 @@ class Login extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
+      telaAtual: 'Login',
       usernameLogin: '',
       passwordLogin: '',
       usernameCadastro: '123',
@@ -66,7 +67,8 @@ class Login extends React.Component {
 
   efetuarCadastro = (username, password) => {
     alert(username + '  ' + password)
-    const isPassed = this.verificarCadastro(username, password)
+    let isPassed = this.verificarCadastro(username, password)
+    alert(isPassed)
     if (isPassed) {
       this.setState({
         usernameCadastro: username,
@@ -79,6 +81,7 @@ class Login extends React.Component {
       const error = document.getElementById('failCadastro')
       error.classList.remove('hidden')
       error.classList.add('show')
+      this.preventDefault()
     }
   }
 

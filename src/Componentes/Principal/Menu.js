@@ -16,32 +16,32 @@ class Menu extends React.Component {
   }
   render() {
     return (
-      <div id="menu" className="teste">
+      <div>
         <Button
           id="pagar"
           acao="Pagar"
-          estiloBotao="teste"
+          estiloBotao="btn-menu"
           metodo={this.mudarTransacaoPagamento}
         />
 
         <Button
           acao="Receber"
           id="receber"
-          estiloBotao="teste"
+          estiloBotao="btn-menu"
           metodo={this.mudarTransacaoRecebimento}
         />
 
         <Button
           id="listar"
           acao="Extrato"
-          estiloBotao="teste"
+          estiloBotao="btn-menu"
           metodo={this.mudarTransacaoListagem}
         />
 
         <Button
           id="sair"
           acao="Sair"
-          estiloBotao="teste-sair"
+          estiloBotao="btn-menu"
           metodo={this.props.metodo}
         />
       </div>

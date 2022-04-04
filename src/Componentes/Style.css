@@ -97,8 +97,6 @@ main {
   color: red;
   font-weight: bold;
   font-size: 12px;
-  display: none;
-  visibility: hidden;
   text-align: center;
   margin-top: 10px;
 }
@@ -169,13 +167,12 @@ main {
 }
 
 .button-cadastro:hover {
-  background-color: rgb(73, 172, 46);
+  background-color: rgb(74, 160, 50);
 }
 
 /*___________________________________________________________________________________*/
 
 .container-grid {
-  
   display: grid;
   width: 100%;
   height: 100%;
@@ -189,17 +186,18 @@ main {
 
 .Header {
   grid-area: Header;
-  background-color: rgb(211, 211, 211);
+  background: linear-gradient(45deg, black, #59139b);
+  color: white;
 }
 
 .Menu {
   grid-area: Menu;
-  background-color: blue;
+  background: linear-gradient(157deg, black, #59139b);
 }
 
 .Content {
   grid-area: Content;
-  padding: 90px 90px;
+  padding: 90px 90px 0px 90px;
 }
 
 .flex-container {
@@ -220,10 +218,6 @@ main {
   order: 0;
   margin: 10px 0px;
   align-items: center;
-}
-
-.loggout {
-  align-content: flex-end;
 }
 
 .title-conta {
@@ -248,7 +242,6 @@ main {
   max-height: 107px;
   width: 100%;
   padding: 15px 0px 15px 25px;
-
   margin: 20px auto 20px 15px;
   border-style: groove;
   border-color: gray;
@@ -272,18 +265,20 @@ main {
   border-collapse: collapse;
   padding: 8px;
 }
+
 .demo th {
   border: 1px solid #b5b5b5;
   padding: 8px;
   background: #d4d4d4;
 }
+
 .demo td {
   border: 1px solid #b5b5b5;
   padding: 8px;
   text-align: center;
 }
 
-.teste {
+.btn-menu {
   font-weight: bold;
   text-transform: uppercase;
   text-align: center;
@@ -291,28 +286,17 @@ main {
   height: 60px;
   width: 100%;
   margin-top: 40px;
-  transition: background-color 0.7s;
-}
-
-.teste-sair {
-  font-weight: bold;
-  text-transform: uppercase;
-  text-align: center;
-  display: inline-block;
-  height: 60px;
-  width: 100%;
-  margin-top: 155%;
+  background-color: #9d9d9d;
   transition: background-color 0.7s;
 }
 
 #sair:hover {
   background-color: rgb(221, 0, 0);
+  color: white;
 }
 
 #pagar:hover, #receber:hover, #listar:hover {
-  background-color: rgb(0, 185, 0);
+  background-color: #59139b;
+  color: white;
 }
 
-.sair {
-  margin-top: '156%'
-}
