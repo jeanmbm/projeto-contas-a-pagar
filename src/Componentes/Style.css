@@ -24,6 +24,7 @@ a.links {
 :root {
   --principal-color: #443785;
   --input-color: gainsboro;
+  --gradiente: linear-gradient(45deg, black, #59139b);
 }
 
 /* CODE */
@@ -193,11 +194,13 @@ main {
 
 .Menu {
   grid-area: Menu;
+  height: 100%;
   background: linear-gradient(157deg, black, #59139b);
 }
 
 .Content {
   grid-area: Content;
+  height: 100%;
   padding: 90px 90px 0px 90px;
 }
 

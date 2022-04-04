@@ -46,7 +46,7 @@ class Login extends React.Component {
     e.preventDefault()
   }
 
-  telaLogin = e => {
+  telaLogin = () => {
     const cadastro = document.getElementById('cadastro')
     cadastro.classList.remove('show')
     cadastro.classList.add('hidden')
@@ -55,7 +55,9 @@ class Login extends React.Component {
     login.classList.remove('hidden')
     login.classList.add('show')
 
-    e.preventDefault()
+    const erro = document.getElementById('userNotEnter')
+    erro.classList.remove('show')
+    erro.classList.add('hidden')
   }
 
   verificarCadastro = (username, password) => {
@@ -72,7 +74,9 @@ class Login extends React.Component {
     if (isPassed) {
       this.setState({
         usernameCadastro: username,
-        passwordCadastro: password
+        passwordCadastro: password,
+        passwordLogin: '',
+        usernameLogin: ''
       })
 
       alert(this.state.usernameLogin + '  ' + this.state.passwordLogin)
@@ -81,7 +85,6 @@ class Login extends React.Component {
       const error = document.getElementById('failCadastro')
       error.classList.remove('hidden')
       error.classList.add('show')
-      this.preventDefault()
     }
   }
 
@@ -98,7 +101,6 @@ class Login extends React.Component {
       userNotEnter.classList.remove('hidden')
       userNotEnter.classList.add('show')
     }
-    alert(this.state.isLoggedin)
   }
 
   render() {

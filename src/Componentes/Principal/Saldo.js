@@ -2,24 +2,21 @@ import React from 'react'
 
 class Saldo extends React.Component {
   render() {
-    let saldoFinal = 0
-    for (let i = 0; i < this.props.lista.length; i++) {
-      if (this.props.lista.tipo === 'Pagamento') {
-        saldoFinal += this.props.valor
+    let saldoPositivo
+    let saldoNegativo
+    let times = this.props.lista.length
+    for (let i = 0; i <= times; i++) {
+      let value = this.props.lista.valor
+      if (this.props.lista.tipo === 'Recebimento') {
+        saldoPositivo += value
       } else {
-        saldoFinal -= this.props.valor
+        saldoNegativo += value
       }
     }
 
-    const saldo = this.props.lista.reduce((valor, currentItem) => {
-      if (currentItem.tipo === 'Recebimento') {
-        return (valor = valor + currentItem.valor)
-      } else {
-        return (valor = valor - currentItem.valor)
-      }
-    })
+    let saldoFinal = saldoPositivo - saldoNegativo
 
-    return <div>Saldo: R${String(saldo).replace('.', ',')}</div>
+    return <div>Saldo: R${saldoFinal}</div>
   }
 }
 

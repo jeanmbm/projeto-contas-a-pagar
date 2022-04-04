@@ -14,6 +14,12 @@ class Menu extends React.Component {
   mudarTelaListagem = () => {
     this.props.mudarTela('Listagem')
   }
+
+  sair = () => {
+    alert('aqui')
+    this.props.loggout()
+  }
+
   render() {
     return (
       <div>
@@ -42,7 +48,7 @@ class Menu extends React.Component {
           id="sair"
           acao="Sair"
           estiloBotao="btn-menu"
-          metodo={this.props.metodo}
+          metodo={this.sair}
         />
       </div>
     )

@@ -4,13 +4,13 @@ import Header from './Header'
 import Menu from './Menu'
 import '../Style.css'
 import Listagem from './Listagem'
+import { Navigate } from 'react-router-dom'
 
 class Conteudo extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
       transacaoAtual: 'Listagem',
-      saldo: 1000.0,
       lista: [
         {
           valor: 1000,
@@ -65,6 +65,10 @@ class Conteudo extends React.Component {
     }
   }
 
+  loggout = () => {
+    return <Navigate to="/" />
+  }
+
   render() {
     let transacao
     if (this.state.telaAtual === 'Pagamento') {
@@ -94,7 +98,7 @@ class Conteudo extends React.Component {
             <Header saldo={this.state.saldo} lista={this.state.lista} />
           </div>
           <div className="Menu">
-            <Menu mudarTela={this.mudarTelaAtual} />
+            <Menu mudarTela={this.mudarTelaAtual} loggout={this.loggout} />
           </div>
           <div className="Content">{transacao}</div>
         </div>
