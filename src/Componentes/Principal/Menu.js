@@ -3,16 +3,16 @@ import Button from '../Auxiliares/Button'
 import '../Style.css'
 
 class Menu extends React.Component {
-  mudarTransacaoPagamento = () => {
-    this.props.mudarTransacao('Pagamento')
+  mudarTelaPagamento = () => {
+    this.props.mudarTela('Pagamento')
   }
 
-  mudarTransacaoRecebimento = () => {
-    this.props.mudarTransacao('Recebimento')
+  mudarTelaRecebimento = () => {
+    this.props.mudarTela('Recebimento')
   }
 
-  mudarTransacaoListagem = () => {
-    this.props.mudarTransacao('Listagem')
+  mudarTelaListagem = () => {
+    this.props.mudarTela('Listagem')
   }
   render() {
     return (
@@ -21,21 +21,21 @@ class Menu extends React.Component {
           id="pagar"
           acao="Pagar"
           estiloBotao="btn-menu"
-          metodo={this.mudarTransacaoPagamento}
+          metodo={this.mudarTelaPagamento}
         />
 
         <Button
           acao="Receber"
           id="receber"
           estiloBotao="btn-menu"
-          metodo={this.mudarTransacaoRecebimento}
+          metodo={this.mudarTelaRecebimento}
         />
 
         <Button
           id="listar"
           acao="Extrato"
           estiloBotao="btn-menu"
-          metodo={this.mudarTransacaoListagem}
+          metodo={this.mudarTelaListagem}
         />
 
         <Button

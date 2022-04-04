@@ -22,8 +22,8 @@ class Conteudo extends React.Component {
     }
   }
 
-  mudarTransacaoAtual = transacao => {
-    this.setState({ transacaoAtual: transacao })
+  mudarTelaAtual = tela => {
+    this.setState({ telaAtual: tela })
   }
 
   dataHoraTransacao = () => {
@@ -57,7 +57,7 @@ class Conteudo extends React.Component {
         data: this.dataHoraTransacao()
       }
       this.setState({ lista: [...this.state.lista, transacao] })
-      this.setState({ transacaoAtual: 'Listagem' })
+      this.setState({ telaAtual: 'Listagem' })
     } else {
       const error = document.getElementById('failTransaction')
       error.classList.remove('hidden')
@@ -67,7 +67,7 @@ class Conteudo extends React.Component {
 
   render() {
     let transacao
-    if (this.state.transacaoAtual === 'Pagamento') {
+    if (this.state.telaAtual === 'Pagamento') {
       transacao = (
         <Transação
           titulo="Contas a pagar"
@@ -75,7 +75,7 @@ class Conteudo extends React.Component {
           metodo={this.adicionarTrasancao}
         />
       )
-    } else if (this.state.transacaoAtual === 'Recebimento') {
+    } else if (this.state.telaAtual === 'Recebimento') {
       transacao = (
         <Transação
           titulo="Contas a receber"
@@ -94,7 +94,7 @@ class Conteudo extends React.Component {
             <Header saldo={this.state.saldo} lista={this.state.lista} />
           </div>
           <div className="Menu">
-            <Menu mudarTransacao={this.mudarTransacaoAtual} />
+            <Menu mudarTela={this.mudarTelaAtual} />
           </div>
           <div className="Content">{transacao}</div>
         </div>

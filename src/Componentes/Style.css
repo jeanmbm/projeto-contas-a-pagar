@@ -103,7 +103,7 @@ main {
 
 .hidden {
   display: none;
-  visibility: hidden;
+  visibility: collapse;
 }
 
 .show {
