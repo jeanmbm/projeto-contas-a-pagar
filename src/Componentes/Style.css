@@ -116,6 +116,7 @@ main {
 .container-cadastro {
   margin: 70px 60px;
   min-height: 100vh;
+  overflow: hidden;
 }
 
 .cadastro {
