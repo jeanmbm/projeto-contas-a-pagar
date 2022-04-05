@@ -10,7 +10,7 @@ class Conteudo extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      transacaoAtual: 'Listagem',
+      telaAtual: 'Listagem',
       lista: [
         {
           valor: 1000,
@@ -18,7 +18,8 @@ class Conteudo extends React.Component {
           tipo: 'Recebimento',
           data: this.dataHoraTransacao()
         }
-      ]
+      ],
+      loggout: false
     }
   }
 
@@ -66,7 +67,7 @@ class Conteudo extends React.Component {
   }
 
   loggout = () => {
-    return <Navigate to="/" />
+    this.setState({ loggout: true })
   }
 
   render() {
@@ -89,6 +90,10 @@ class Conteudo extends React.Component {
       )
     } else {
       transacao = <Listagem lista={this.state.lista} />
+    }
+
+    if (this.state.loggout) {
+      return <Navigate to="/" />
     }
 
     return (

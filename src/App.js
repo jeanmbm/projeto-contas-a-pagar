@@ -7,14 +7,12 @@ import Conta from './Componentes/Principal/Conta'
 class App extends React.Component {
   render() {
     return (
-      <>
-        <Router>
-          <Routes>
-            <Route exact path="/" element={<Login />} />
-            <Route path="/conta" element={<Conta />} />
-          </Routes>
-        </Router>
-      </>
+      <Router>
+        <Routes>
+          <Route exact path="/" element={<Login />} />
+          <Route path="/conta" element={<Conta />} />
+        </Routes>
+      </Router>
     )
   }
 }

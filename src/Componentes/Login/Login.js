@@ -42,8 +42,6 @@ class Login extends React.Component {
     const cadastro = document.getElementById('cadastro')
     cadastro.classList.remove('hidden')
     cadastro.classList.add('show')
-
-    e.preventDefault()
   }
 
   telaLogin = () => {
@@ -104,6 +102,11 @@ class Login extends React.Component {
   }
 
   render() {
+    const buttonCadastro = {
+      backgroundColor: 'white',
+      color: 'black'
+    }
+
     if (this.state.isLoggedin) {
       return <Navigate to={'/conta'} />
     } else {
@@ -146,12 +149,11 @@ class Login extends React.Component {
 
                 <div className="cadastro">
                   <p>Não tem cadastro?</p>
-                  <button
-                    onClick={this.telaCadastro}
-                    style={{ backgroundColor: 'white' }}
-                  >
-                    Cadastrar
-                  </button>
+                  <Button
+                    acao="Cadastrar"
+                    metodo={this.telaCadastro}
+                    estiloBotao={buttonCadastro}
+                  />
                 </div>
 
                 <Button
