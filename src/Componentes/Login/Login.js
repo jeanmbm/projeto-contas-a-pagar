@@ -12,8 +12,8 @@ class Login extends React.Component {
       telaAtual: 'Login',
       usernameLogin: '',
       passwordLogin: '',
-      usernameCadastro: '123',
-      passwordCadastro: '123',
+      usernameCadastro: '',
+      passwordCadastro: '',
       isLoggedin: false
     }
   }
