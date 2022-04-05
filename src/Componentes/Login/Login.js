@@ -66,9 +66,7 @@ class Login extends React.Component {
   }
 
   efetuarCadastro = (username, password) => {
-    alert(username + '  ' + password)
     let isPassed = this.verificarCadastro(username, password)
-    alert(isPassed)
     if (isPassed) {
       this.setState({
         usernameCadastro: username,
@@ -77,7 +75,6 @@ class Login extends React.Component {
         usernameLogin: ''
       })
 
-      alert(this.state.usernameLogin + '  ' + this.state.passwordLogin)
       this.telaLogin()
     } else {
       const error = document.getElementById('failCadastro')
@@ -87,8 +84,6 @@ class Login extends React.Component {
   }
 
   loginVerificator = e => {
-    alert(this.state.usernameCadastro + this.state.passwordCadastro)
-    alert(this.state.usernameLogin + this.state.passwordLogin)
     if (
       this.state.usernameLogin === this.state.usernameCadastro &&
       this.state.passwordLogin === this.state.passwordCadastro

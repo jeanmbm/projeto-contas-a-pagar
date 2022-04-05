@@ -16,7 +16,6 @@ class Menu extends React.Component {
   }
 
   sair = () => {
-    alert('aqui')
     this.props.loggout()
   }
 
