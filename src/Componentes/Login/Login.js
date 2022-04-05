@@ -95,6 +95,7 @@ class Login extends React.Component {
     ) {
       this.setState({ isLoggedin: true })
     } else {
+      this.setState({ usernameLogin: '', passwordLogin: '' })
       const userNotEnter = document.getElementById('userNotEnter')
       userNotEnter.classList.remove('hidden')
       userNotEnter.classList.add('show')
