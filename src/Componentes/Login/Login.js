@@ -4,6 +4,7 @@ import Button from '../Auxiliares/Button'
 import Cadastro from '../Cadastro/Cadastro'
 import Input from '../Auxiliares/Input'
 import '../Style.css'
+import axios from 'axios'
 
 class Login extends React.Component {
   constructor(props) {
@@ -68,6 +69,16 @@ class Login extends React.Component {
   efetuarCadastro = (username, password) => {
     let isPassed = this.verificarCadastro(username, password)
     if (isPassed) {
+
+      await axios
+      .post("/user/add", {username, password})
+      .then(response => {
+        console.log(response)
+      })
+      .catch(error => {
+        console.error(error)
+      });
+
       this.setState({
         usernameCadastro: username,
         passwordCadastro: password,

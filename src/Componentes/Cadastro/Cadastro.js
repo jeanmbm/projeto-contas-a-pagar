@@ -2,6 +2,7 @@ import React from 'react'
 import '../Style.css'
 import Button from '../Auxiliares/Button'
 import Input from '../Auxiliares/Input'
+import axios from '../../Api/Axios'
 
 class Cadastro extends React.Component {
   constructor(props) {
