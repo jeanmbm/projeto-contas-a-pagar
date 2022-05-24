@@ -6,7 +6,7 @@ import '../Style.css'
 import Listagem from './Listagem'
 import { Navigate } from 'react-router-dom'
 
-class Conteudo extends React.Component {
+export default class Conteudo extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
@@ -27,19 +27,22 @@ class Conteudo extends React.Component {
     this.setState({ telaAtual: tela })
   }
 
-  dataHoraTransacao = () => {
-    const data = new Date()
-    const dia = String(data.getDate()).padStart(2, '0')
-    const mes = String(data.getMonth() + 1).padStart(2, '0')
-    const ano = data.getFullYear()
-    const dataAtual = dia + '/' + mes + '/' + ano
-    const hora = new Date().toLocaleTimeString()
-    const dataHora = dataAtual + ' ' + hora
-    return dataHora
-  }
+  //  dataHoraTransacao = () => {
+  //    const data = new Date()
+  //    const dia = String(data.getDate()).padStart(2, '0')
+  //    const mes = String(data.getMonth() + 1).padStart(2, '0')
+  //    const ano = data.getFullYear()
+  //    const dataAtual = dia + '/' + mes + '/' + ano
+  //    const hora = new Date().toLocaleTimeString()
+  //    const dataHora = dataAtual + ' ' + hora
+  //    return dataHora
+  //  }
 
   verificarDadosTransacao = (valorTransacao, descricaoTransacao) => {
-    if (valorTransacao !== '' && descricaoTransacao !== '') {
+    if (
+      (valorTransacao !== '' || valorTransacao < 0) &&
+      descricaoTransacao !== ''
+    ) {
       return true
     }
     return false
@@ -50,15 +53,29 @@ class Conteudo extends React.Component {
       valorTransacao,
       descricaoTransacao
     )
+
     if (isPassed) {
-      const transacao = {
-        valor: valorTransacao,
-        descricao: descricaoTransacao,
-        tipo: tipoTransacao,
-        data: this.dataHoraTransacao()
-      }
-      this.setState({ lista: [...this.state.lista, transacao] })
-      this.setState({ telaAtual: 'Listagem' })
+      axios
+        .post('http://localhost:9000/api/transaction/add', {
+          value: valorTransacao,
+          description: descricaoTransacao,
+          type: tipoTransacao
+        })
+        .then(response => {
+          alert(response.status)
+        })
+        .catch(error => {
+          alert(error)
+        })
+
+      //      const transacao = {
+      //        valor: valorTransacao,
+      //        descricao: descricaoTransacao,
+      //        tipo: tipoTransacao,
+      //        data: this.dataHoraTransacao()
+      //      }
+      //      this.setState({ lista: [...this.state.lista, transacao] })
+      //      this.setState({ telaAtual: 'Listagem' })
     } else {
       const error = document.getElementById('failTransaction')
       error.classList.remove('hidden')
@@ -76,7 +93,7 @@ class Conteudo extends React.Component {
       transacao = (
         <Transação
           titulo="Contas a pagar"
-          tipo="Pagamento"
+          tipo="PAY"
           metodo={this.adicionarTrasancao}
         />
       )
@@ -84,7 +101,7 @@ class Conteudo extends React.Component {
       transacao = (
         <Transação
           titulo="Contas a receber"
-          tipo="Recebimento"
+          tipo="RECIVE"
           metodo={this.adicionarTrasancao}
         />
       )
@@ -111,4 +128,3 @@ class Conteudo extends React.Component {
     )
   }
 }
-export default Conteudo

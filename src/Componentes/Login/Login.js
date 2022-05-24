@@ -69,15 +69,17 @@ class Login extends React.Component {
   efetuarCadastro = (username, password) => {
     let isPassed = this.verificarCadastro(username, password)
     if (isPassed) {
-
-      await axios
-      .post("/user/add", {username, password})
-      .then(response => {
-        console.log(response)
-      })
-      .catch(error => {
-        console.error(error)
-      });
+      axios
+        .post('http://localhost:9000/api/user/add', {
+          username: username,
+          password: password
+        })
+        .then(response => {
+          alert(response.status)
+        })
+        .catch(error => {
+          alert(error)
+        })
 
       this.setState({
         usernameCadastro: username,
@@ -95,6 +97,25 @@ class Login extends React.Component {
   }
 
   loginVerificator = e => {
+    axios
+      .get('http://localhost:9000/api/user/login', {
+        username: this.state.usernameLogin,
+        password: this.state.passwordLogin
+      })
+      .then(response => {
+        if (response.status === '200') {
+        }
+        alert(response.status)
+      })
+      .catch(error => {
+        if (error.response?.status === '406') {
+          this.setState({ usernameLogin: '', passwordLogin: '' })
+          const userNotEnter = document.getElementById('userNotEnter')
+          userNotEnter.classList.remove('hidden')
+          userNotEnter.classList.add('show')
+        }
+      })
+
     if (
       this.state.usernameLogin === this.state.usernameCadastro &&
       this.state.passwordLogin === this.state.passwordCadastro

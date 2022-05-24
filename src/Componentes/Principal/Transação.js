@@ -55,7 +55,7 @@ class Transação extends React.Component {
           />
 
           <p id="failTransaction" className="error hidden">
-            Preencha todos os campos
+            Preencha todos os campos corretamente
           </p>
 
           <Button
