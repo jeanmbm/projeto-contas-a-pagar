@@ -304,3 +304,24 @@ main {
   color: white;
 }
 
+
+.editButton {
+  background-color: #1e74ff;
+	border-radius:6px;
+	display:inline-block;
+	cursor:pointer;
+	padding:6px 9px;
+}
+
+.deleteButton {
+  background-color: #f00000;
+	border-radius:6px;
+	display:inline-block;
+	cursor:pointer;
+	padding:6px 9px;
+}
+
+.actions {
+  display: flex;
+  justify-content: space-evenly;
+}

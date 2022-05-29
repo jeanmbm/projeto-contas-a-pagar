@@ -6,7 +6,7 @@ import Input from '../Auxiliares/Input'
 import '../Style.css'
 import axios from 'axios'
 
-class Login extends React.Component {
+export default class Login extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
@@ -15,7 +15,8 @@ class Login extends React.Component {
       passwordLogin: '',
       usernameCadastro: '',
       passwordCadastro: '',
-      isLoggedin: false
+      isLoggedin: false,
+      isUser: ''
     }
   }
 
@@ -66,29 +67,40 @@ class Login extends React.Component {
     return false
   }
 
-  efetuarCadastro = (username, password) => {
-    let isPassed = this.verificarCadastro(username, password)
+  efetuarCadastro = async (username, password) => {
+    const isPassed = this.verificarCadastro(username, password)
+
     if (isPassed) {
-      axios
+      await axios
         .post('http://localhost:9000/api/user/add', {
           username: username,
           password: password
         })
         .then(response => {
-          alert(response.status)
+          //console.log(response)
+          //console.log(response.data)
+          //console.log(response.status)
+          //console.log(typeof response.status)
+          if (response.status === 201) {
+            this.setState({
+              usernameCadastro: username,
+              passwordCadastro: password,
+              passwordLogin: '',
+              usernameLogin: ''
+            })
+            this.telaLogin()
+            alert('!! Cadastro realizado com sucesso !!')
+          }
         })
         .catch(error => {
-          alert(error)
+          if (error.response?.status == 406) {
+            const error = document.getElementById('failCadastro')
+            error.classList.remove('hidden')
+            error.classList.add('show')
+          } else if (error.response?.status === '400') {
+            alert('Não foi possível realizar o cadastro. Tente novamente')
+          }
         })
-
-      this.setState({
-        usernameCadastro: username,
-        passwordCadastro: password,
-        passwordLogin: '',
-        usernameLogin: ''
-      })
-
-      this.telaLogin()
     } else {
       const error = document.getElementById('failCadastro')
       error.classList.remove('hidden')
@@ -96,37 +108,39 @@ class Login extends React.Component {
     }
   }
 
-  loginVerificator = e => {
-    axios
-      .get('http://localhost:9000/api/user/login', {
+  loginVerificator = async e => {
+    await axios
+      .post('http://localhost:9000/api/user/login', {
         username: this.state.usernameLogin,
         password: this.state.passwordLogin
       })
       .then(response => {
-        if (response.status === '200') {
-        }
-        alert(response.status)
+        this.setState({ isLoggedin: true, idUser: response.data.id })
+        console.log(response)
+        console.log(response.data.id)
       })
       .catch(error => {
-        if (error.response?.status === '406') {
+        if (error.response?.status == 406) {
           this.setState({ usernameLogin: '', passwordLogin: '' })
           const userNotEnter = document.getElementById('userNotEnter')
           userNotEnter.classList.remove('hidden')
           userNotEnter.classList.add('show')
+        } else if (error.response?.status === '400') {
+          alert('Não foi possível realizar a consulta. Tente novamente')
         }
       })
 
-    if (
-      this.state.usernameLogin === this.state.usernameCadastro &&
-      this.state.passwordLogin === this.state.passwordCadastro
-    ) {
-      this.setState({ isLoggedin: true })
-    } else {
-      this.setState({ usernameLogin: '', passwordLogin: '' })
-      const userNotEnter = document.getElementById('userNotEnter')
-      userNotEnter.classList.remove('hidden')
-      userNotEnter.classList.add('show')
-    }
+    //    if (
+    //      this.state.usernameLogin === this.state.usernameCadastro &&
+    //      this.state.passwordLogin === this.state.passwordCadastro
+    //    ) {
+    //      this.setState({ isLoggedin: true })
+    //    } else {
+    //      this.setState({ usernameLogin: '', passwordLogin: '' })
+    //      const userNotEnter = document.getElementById('userNotEnter')
+    //      userNotEnter.classList.remove('hidden')
+    //      userNotEnter.classList.add('show')
+    //    }
   }
 
   render() {
@@ -202,5 +216,3 @@ class Login extends React.Component {
     }
   }
 }
-
-export default Login
