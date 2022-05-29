@@ -15,8 +15,7 @@ export default class Login extends React.Component {
       passwordLogin: '',
       usernameCadastro: '',
       passwordCadastro: '',
-      isLoggedin: false,
-      isUser: ''
+      isLoggedin: false
     }
   }
 
@@ -36,7 +35,7 @@ export default class Login extends React.Component {
     this.setState({ passwordCadastro: e.target.value })
   }
 
-  telaCadastro = e => {
+  telaCadastro = () => {
     const login = document.getElementById('login')
     login.classList.remove('show')
     login.classList.add('hidden')
@@ -77,10 +76,6 @@ export default class Login extends React.Component {
           password: password
         })
         .then(response => {
-          //console.log(response)
-          //console.log(response.data)
-          //console.log(response.status)
-          //console.log(typeof response.status)
           if (response.status === 201) {
             this.setState({
               usernameCadastro: username,
@@ -93,11 +88,11 @@ export default class Login extends React.Component {
           }
         })
         .catch(error => {
-          if (error.response?.status == 406) {
+          if (error.response?.status === 406) {
             const error = document.getElementById('failCadastro')
             error.classList.remove('hidden')
             error.classList.add('show')
-          } else if (error.response?.status === '400') {
+          } else if (error.response?.status === 400) {
             alert('Não foi possível realizar o cadastro. Tente novamente')
           }
         })
@@ -115,32 +110,20 @@ export default class Login extends React.Component {
         password: this.state.passwordLogin
       })
       .then(response => {
-        this.setState({ isLoggedin: true, idUser: response.data.id })
-        console.log(response)
-        console.log(response.data.id)
+        localStorage.setItem('id', response.data)
+        this.setState({ isLoggedin: true })
+        console.log(response.data)
       })
       .catch(error => {
-        if (error.response?.status == 406) {
+        if (error.response?.status === 406) {
           this.setState({ usernameLogin: '', passwordLogin: '' })
           const userNotEnter = document.getElementById('userNotEnter')
           userNotEnter.classList.remove('hidden')
           userNotEnter.classList.add('show')
-        } else if (error.response?.status === '400') {
+        } else if (error.response?.status === 400) {
           alert('Não foi possível realizar a consulta. Tente novamente')
         }
       })
-
-    //    if (
-    //      this.state.usernameLogin === this.state.usernameCadastro &&
-    //      this.state.passwordLogin === this.state.passwordCadastro
-    //    ) {
-    //      this.setState({ isLoggedin: true })
-    //    } else {
-    //      this.setState({ usernameLogin: '', passwordLogin: '' })
-    //      const userNotEnter = document.getElementById('userNotEnter')
-    //      userNotEnter.classList.remove('hidden')
-    //      userNotEnter.classList.add('show')
-    //    }
   }
 
   render() {

@@ -16,6 +16,7 @@ class Listagem extends React.Component {
                 src="https://cdn-icons-png.flaticon.com/512/1159/1159633.png"
                 height="20"
                 width="20"
+                alt="Edit"
               />
             </button>
             <button
@@ -26,6 +27,7 @@ class Listagem extends React.Component {
                 src="https://img.icons8.com/material-rounded/344/filled-trash.png"
                 height="20"
                 width="20"
+                alt="Delete"
               />
             </button>
           </div>

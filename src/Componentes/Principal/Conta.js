@@ -12,20 +12,26 @@ export default class Conteudo extends React.Component {
     super(props)
     this.state = {
       telaAtual: 'Listagem',
-      lista: [
-        {
-          valor: 1000,
-          descricao: 'Saldo inicial',
-          tipo: 'Recebimento',
-          data: this.dataHoraTransacao()
-        }
-      ],
+      lista: [],
       loggout: false
     }
   }
 
   mudarTelaAtual = tela => {
     this.setState({ telaAtual: tela })
+  }
+
+  componentDidMount() {
+    axios
+      .get(`http://localhost:9000/api/transaction/list`)
+      .then(response => {
+        const itens = response.data
+        this.setState({ lista: itens })
+        alert(response.status)
+      })
+      .catch(error => {
+        alert('!!  Não foi possível listar as transações  !!')
+      })
   }
 
   dataHoraTransacao = () => {
@@ -73,7 +79,7 @@ export default class Conteudo extends React.Component {
             tipo: tipoTransacao,
             data: this.dataHoraTransacao()
           }
-          this.setState({ lista: [...this.state.lista, transacao] })
+          //this.setState({ lista: [...this.state.lista, transacao] })
           this.setState({ telaAtual: 'Listagem' })
           console.log(response.status)
         })
@@ -87,7 +93,7 @@ export default class Conteudo extends React.Component {
     }
   }
 
-  edit = () => {
+  edit = async id => {
     //axios
     //  .put('http://localhost:9000/api/transaction/add', {
     //    value: valorTransacao,
@@ -100,23 +106,19 @@ export default class Conteudo extends React.Component {
     //  .catch(error => {
     //    alert(error)
     //  })
-    //alert('edit')
+    alert('ToDo edit')
   }
 
-  delete = () => {
-    //  axios
-    //    .put(`http://localhost:9000/api/transaction/add`, {
-    //      value: valorTransacao,
-    //      description: descricaoTransacao,
-    //      type: tipoTransacao
-    //    })
-    //    .then(response => {
-    //     alert(response.status)
-    //    })
-    //    .catch(error => {
-    //      alert(error)
-    //    })
-    //  alert('delete')
+  delete = async id => {
+    await axios
+      .put(`http://localhost:9000/api/transaction/cancel/${id}`)
+      .then(response => {
+        alert(response.status)
+      })
+      .catch(error => {
+        alert(error)
+      })
+    alert('ToDo delete')
   }
 
   loggout = () => {

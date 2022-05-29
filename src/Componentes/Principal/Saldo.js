@@ -7,7 +7,7 @@ class Saldo extends React.Component {
 
     this.props.lista.forEach(item => {
       let value = parseFloat(item.valor)
-      if (item.tipo === 'Recebimento') {
+      if (item.tipo === 'RECIVE') {
         saldoPositivo += value
       } else {
         saldoNegativo += value
