@@ -21,13 +21,14 @@ export default class Conteudo extends React.Component {
     this.setState({ telaAtual: tela })
   }
 
-  componentDidMount() {
+  getListToBack = () => {
+    const userId = localStorage.getItem('userId')
+
     axios
-      .get(`http://localhost:9000/api/transaction/list`)
+      .get(`http://localhost:9000/api/transaction/list/${userId}`)
       .then(response => {
         const itens = response.data
         this.setState({ lista: itens })
-        alert(response.status)
       })
       .catch(error => {
         alert('!!  Não foi possível listar as transações  !!')
@@ -66,20 +67,15 @@ export default class Conteudo extends React.Component {
     )
 
     if (isPassed) {
+      const userId = localStorage.getItem('userId')
+
       await axios
-        .post('http://localhost:9000/api/transaction/add', {
+        .post(`http://localhost:9000/api/transaction/add/${userId}`, {
           value: valorTransacao,
           description: descricaoTransacao,
           type: tipoTransacao
         })
         .then(response => {
-          const transacao = {
-            valor: valorTransacao,
-            descricao: descricaoTransacao,
-            tipo: tipoTransacao,
-            data: this.dataHoraTransacao()
-          }
-          //this.setState({ lista: [...this.state.lista, transacao] })
           this.setState({ telaAtual: 'Listagem' })
           console.log(response.status)
         })
@@ -109,19 +105,22 @@ export default class Conteudo extends React.Component {
     alert('ToDo edit')
   }
 
-  delete = async id => {
+  cancel = async id => {
+    const userId = localStorage.getItem('userId')
+
     await axios
-      .put(`http://localhost:9000/api/transaction/cancel/${id}`)
+      .put(`http://localhost:9000/api/transaction/cancel/${id}/${userId}`)
       .then(response => {
-        alert(response.status)
+        console.log(response.status)
+        alert('!!  Transação cancelada com sucesso  !!')
       })
       .catch(error => {
-        alert(error)
+        console.log(error)
       })
-    alert('ToDo delete')
   }
 
   loggout = () => {
+    localStorage.clear()
     this.setState({ loggout: true })
   }
 
@@ -148,7 +147,8 @@ export default class Conteudo extends React.Component {
         <Listagem
           lista={this.state.lista}
           edit={this.edit}
-          delete={this.delete}
+          cancel={this.cancel}
+          getListToBack={this.getListToBack}
         />
       )
     }

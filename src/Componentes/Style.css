@@ -194,7 +194,7 @@ main {
 
 .Menu {
   grid-area: Menu;
-  height: 100%;
+  height: 100vh;
   background: linear-gradient(157deg, black, #59139b);
 }
 

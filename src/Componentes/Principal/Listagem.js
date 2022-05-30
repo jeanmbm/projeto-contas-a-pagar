@@ -2,13 +2,17 @@ import React from 'react'
 import '../Style.css'
 
 class Listagem extends React.Component {
+  componentDidMount() {
+    this.props.getListToBack()
+  }
+
   render() {
-    const linhas = this.props.lista.map((lista, index) => (
-      <tr key={index}>
-        <td>{lista.valor}</td>
-        <td>{lista.descricao}</td>
-        <td>{lista.tipo}</td>
-        <td>{lista.data}</td>
+    const linhas = this.props.lista.map(lista => (
+      <tr key={lista.id}>
+        <td>{lista.value}</td>
+        <td>{lista.description}</td>
+        <td>{lista.type}</td>
+        <td>{lista.created_at}</td>
         <td>
           <div className="actions">
             <button className="editButton" onClick={() => this.props.edit()}>
@@ -21,7 +25,7 @@ class Listagem extends React.Component {
             </button>
             <button
               className="deleteButton"
-              onClick={() => this.props.delete()}
+              onClick={() => this.props.cancel(lista.id)}
             >
               <img
                 src="https://img.icons8.com/material-rounded/344/filled-trash.png"
