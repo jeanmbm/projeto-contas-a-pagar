@@ -15,7 +15,10 @@ class Listagem extends React.Component {
         <td>{lista.created_at}</td>
         <td>
           <div className="actions">
-            <button className="editButton" onClick={() => this.props.edit()}>
+            <button
+              className="editButton"
+              onClick={() => this.props.edit(lista.id)}
+            >
               <img
                 src="https://cdn-icons-png.flaticon.com/512/1159/1159633.png"
                 height="20"

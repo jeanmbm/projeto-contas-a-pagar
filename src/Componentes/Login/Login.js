@@ -66,6 +66,10 @@ export default class Login extends React.Component {
     return false
   }
 
+  loggout = () => {
+    this.setState({ isLoggedin: false })
+  }
+
   efetuarCadastro = async (username, password) => {
     const isPassed = this.verificarCadastro(username, password)
 

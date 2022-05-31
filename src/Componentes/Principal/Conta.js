@@ -35,16 +35,16 @@ export default class Conteudo extends React.Component {
       })
   }
 
-  dataHoraTransacao = () => {
-    const data = new Date()
-    const dia = String(data.getDate()).padStart(2, '0')
-    const mes = String(data.getMonth() + 1).padStart(2, '0')
-    const ano = data.getFullYear()
-    const dataAtual = dia + '/' + mes + '/' + ano
-    const hora = new Date().toLocaleTimeString()
-    const dataHora = dataAtual + ' ' + hora
-    return dataHora
-  }
+  //  dataHoraTransacao = () => {
+  //    const data = new Date()
+  //    const dia = String(data.getDate()).padStart(2, '0')
+  //    const mes = String(data.getMonth() + 1).padStart(2, '0')
+  //    const ano = data.getFullYear()
+  //    const dataAtual = dia + '/' + mes + '/' + ano
+  //    const hora = new Date().toLocaleTimeString()
+  //    const dataHora = dataAtual + ' ' + hora
+  //    return dataHora
+  //  }
 
   verificarDadosTransacao = (valorTransacao, descricaoTransacao) => {
     if (
@@ -91,7 +91,7 @@ export default class Conteudo extends React.Component {
 
   edit = async id => {
     //axios
-    //  .put('http://localhost:9000/api/transaction/add', {
+    //  .put('http://localhost:9000/api/transaction/edit', {
     //    value: valorTransacao,
     //    description: descricaoTransacao,
     //    type: tipoTransacao
