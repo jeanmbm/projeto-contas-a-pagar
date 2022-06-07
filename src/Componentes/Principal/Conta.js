@@ -6,6 +6,7 @@ import '../Style.css'
 import Listagem from './Listagem'
 import { Navigate } from 'react-router-dom'
 import axios from 'axios'
+import Usuario from './Usuario'
 
 export default class Conteudo extends React.Component {
   constructor(props) {
@@ -142,6 +143,8 @@ export default class Conteudo extends React.Component {
           metodo={this.adicionarTrasancao}
         />
       )
+    } else if (this.state.telaAtual === 'Usuario') {
+      transacao = <Usuario sair={this.loggout} />
     } else {
       transacao = (
         <Listagem

@@ -325,3 +325,11 @@ main {
   display: flex;
   justify-content: space-evenly;
 }
+
+.input-edit {
+  background-color: var(--input-color);
+  font-weight: bold;
+  padding: 15px 126px 15px 40px;
+  margin: 10px;
+  border-radius: 10mm;
+}

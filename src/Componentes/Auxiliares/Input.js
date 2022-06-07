@@ -16,6 +16,7 @@ class Input extends React.Component {
           min={this.props.minValue}
           value={this.props.value}
           onChange={this.props.onChange}
+          disabled={this.props.disabled}
         />
       </div>
     )

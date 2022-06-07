@@ -115,6 +115,8 @@ export default class Login extends React.Component {
       })
       .then(response => {
         localStorage.setItem('userId', response.data.id)
+        localStorage.setItem('username', response.data.username)
+
         this.setState({ isLoggedin: true })
       })
       .catch(error => {
